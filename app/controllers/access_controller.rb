@@ -17,7 +17,7 @@ class AccessController < ApplicationController
         if authorized_user
           session[:user_id] = found_user.id
           # redirect_to "/users/#{found_user.id.to_s}", notice: "You are logged in"
-          redirect_to :back, notice: "You are logged in"
+          redirect_to user_path authorized_user, notice: "You are logged in"
         else
           redirect_to :back, notice: "Incorrect email or password"
         end

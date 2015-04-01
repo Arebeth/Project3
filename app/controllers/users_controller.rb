@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @pets = @user.pets
   end
 
   def edit
@@ -40,6 +41,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:id, :first_name, :last_name, :email, :zipcode, :password, :password_digest, gifts_attributes: [:title, :description, :category_id])
+    params.require(:user).permit(:id, :first_name, :last_name, :email, :password, :password_digest, :photo)
   end
 end

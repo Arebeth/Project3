@@ -1,7 +1,7 @@
 <!-- <h1>Pets#new</h1>
 <p>Find me in app/views/pets/new.html.erb</p> -->
 <h1>Create a New Pet</h1>
-<%= form_for @pets, url: "/user/id/pets" do |F| %>
+<%= form_for @pet, url:user_pets_path(@user.id) do |f| %>
   <p>
     <%= f.label :name%>
     <%= f.text_field :name %>
@@ -26,7 +26,7 @@
   </p>
   <p>
     <%= f.label :gender%>
-    <%= f.text_field :gender %>
+    <!-- <%= f.text_field :gender %> -->
     <%= radio_button_tag(:altered, "altered") %>
     <%= radio_button_tag(:altered, "unaltered") %>
   </p>
@@ -39,20 +39,20 @@
     <%= f.color_field :color %>
   </p>
   <p>
-    <%= f.label :mirochip_company%>
-    <%= f.text_field :mirochip_company %>
+    <%= f.label :microchip_company%>
+    <%= f.text_field :microchip_company %>
   </p>
     <p>
-    <%= f.label :mirochip_company_website%>
-    <%= f.url_field :mirochip_company_website %>
+    <%= f.label :microchip_company_website%>
+    <%= f.url_field :microchip_company_website %>
   </p>
     <p>
-    <%= f.label :mirochip_company_phone%>
-    <%= f.telephone_field :mirochip_company_phone %>
+    <%= f.label :microchip_company_phone%>
+    <%= f.telephone_field :microchip_company_phone %>
   </p>
     <p>
-    <%= f.label :mirochip_resgistration_number%>
-    <%= f.text_field :mirochip_resgistration_number %>
+    <%= f.label :microchip_registration_number%>
+    <%= f.text_field :microchip_registration_number %>
   </p>
     <p>
     <%= f.label :county_registration_number%>
@@ -72,19 +72,19 @@
   </p>
   <p>
     <%= f.label :rabies_expiration%>
-    <%= f.date_field :rabies_expiration %>
+    <%= f.text_field :rabies_expiration %>
   </p>
   <p>
     <%= f.label :care_instructions%>
-    <%= f.date_field :care_instructions %>
+    <%= f.text_field :care_instructions %>
   </p>
   <p>
     <%= f.label :special_needs%>
-    <%= f.date_field :special_needs %>
+    <%= f.text_field :special_needs %>
   </p>  
   <p>
     <%= f.label :historical_information%>
-    <%= f.date_field :historical_information %>
+    <%= f.text_field :historical_information %>
   </p>  
-  <%= f.submit %>
+  <%= f.submit "save" %>
 <% end %>

@@ -3,39 +3,37 @@ Rails.application.routes.draw do
   get 'access/home_page'
 
   post '/access/login', to: "access#attempt_login", as: 'login'
+  delete '/logout', to: 'access#logout', as: 'logout'
 
   get 'access/about'
 
-  resources :users
+  resources :users do
     resources :pets
+  end
 
-  delete '/logout', to: 'access#logout', as: 'logout'
 
-#        Prefix Verb   URI Pattern                 Controller#Action
-#        home_page GET    /                           access#home_page
-# access_home_page GET    /access/home_page(.:format) access#home_page
-#            login POST   /access/login(.:format)     access#attempt_login
-#     access_about GET    /access/about(.:format)     access#about
-#            users GET    /users(.:format)            users#index
-#                  POST   /users(.:format)            users#create
-#         new_user GET    /users/new(.:format)        users#new
-#        edit_user GET    /users/:id/edit(.:format)   users#edit
-#             user GET    /users/:id(.:format)        users#show
-#                  PATCH  /users/:id(.:format)        users#update
-#                  PUT    /users/:id(.:format)        users#update
-#                  DELETE /users/:id(.:format)        users#destroy
-#             pets GET    /pets(.:format)             pets#index
-#                  POST   /pets(.:format)             pets#create
-#          new_pet GET    /pets/new(.:format)         pets#new
-#         edit_pet GET    /pets/:id/edit(.:format)    pets#edit
-#              pet GET    /pets/:id(.:format)         pets#show
-#                  PATCH  /pets/:id(.:format)         pets#update
-#                  PUT    /pets/:id(.:format)         pets#update
-#                  DELETE /pets/:id(.:format)         pets#destroy
-#       pets_index GET    /pets/index(.:format)       pets#index
-#         pets_new GET    /pets/new(.:format)         pets#new
-#        pets_show GET    /pets/show(.:format)        pets#show
-#        pets_edit GET    /pets/edit(.:format)        pets#edit
+#           Prefix Verb   URI Pattern                             Controller#Action
+#        home_page GET    /                                       access#home_page
+# access_home_page GET    /access/home_page(.:format)             access#home_page
+#            login POST   /access/login(.:format)                 access#attempt_login
+#     access_about GET    /access/about(.:format)                 access#about
+#        user_pets GET    /users/:user_id/pets(.:format)          pets#index
+#                  POST   /users/:user_id/pets(.:format)          pets#create
+#     new_user_pet GET    /users/:user_id/pets/new(.:format)      pets#new
+#    edit_user_pet GET    /users/:user_id/pets/:id/edit(.:format) pets#edit
+#         user_pet GET    /users/:user_id/pets/:id(.:format)      pets#show
+#                  PATCH  /users/:user_id/pets/:id(.:format)      pets#update
+#                  PUT    /users/:user_id/pets/:id(.:format)      pets#update
+#                  DELETE /users/:user_id/pets/:id(.:format)      pets#destroy
+#            users GET    /users(.:format)                        users#index
+#                  POST   /users(.:format)                        users#create
+#         new_user GET    /users/new(.:format)                    users#new
+#        edit_user GET    /users/:id/edit(.:format)               users#edit
+#             user GET    /users/:id(.:format)                    users#show
+#                  PATCH  /users/:id(.:format)                    users#update
+#                  PUT    /users/:id(.:format)                    users#update
+#                  DELETE /users/:id(.:format)                    users#destroy
+#           logout DELETE /logout(.:format)                       access#logout
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,2 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container page-background-color">  
+  <h1 class = "showProfileName"><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
+
+  <% if @user.photo.present? == true %>
+    <div style="background-image: url(<%= @user.photo %>); background-size: cover; background-position: center;"></div>
+  <% end %> <!-- end user photo -->
+
+<% @pets.each do |pet| %>
+  <%= pet.name %>
+<% end %>
+
+  <div>
+    <% if @pet.present? == true %>
+
+      <h3><%= @pet.name %></h3>
+
+      <div>
+        <% if @pet.photo == true %>
+          ///show photo
+          
+
+        <% end %>
+    
+    <% else %>  
+      <h3>No Pets Found</h3>
+    <% end %>
+    </div>
+ 
+    </div>
+<%= link_to "Edit", edit_user_path %>
+<%= link_to "Add Pet", new_user_pet_path(@user.id) %>
+</div>
+
+<div id="calendar"></div>
+
+<script>
+    $('#calendar').fullCalendar();
+</script>

@@ -65,14 +65,11 @@
 
         <li><%= link_to("About", controller: "access", action: "about") %></li>
         <% if session[:user_id] %>
-          <li><%= link_to("Profile", "/users/#{session[:user_id]}") %></li>
-
-          <li>
-            <% if session[:user_id] %>
-              <%= link_to "Edit Profile", "/users/#{session[:user_id]}/edit"%>
-            <% end %> 
-          </li>
-          <li><%= link_to("Logout", logout_path, method: :delete) %></li>
+            <li><%= link_to("Profile", "/users/#{session[:user_id]}") %></li>
+            <li><%= link_to "Edit Profile", "/users/#{session[:user_id]}/edit"%></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li> 
+          
+          
         <% else %>
           <li><%= link_to("Sign Up", "/users/new") %></li>
         <% end %>
