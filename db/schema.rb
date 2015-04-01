@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150331023421) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
-    t.string   "birthday"
+    t.string   "birthday"qwq
     t.string   "microchip_number"
     t.string   "microchip_company"
     t.string   "microchip_company_website"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150331023421) do
     t.string   "county_registration_expiration"
     t.string   "rabies_vaccination_number"
     t.string   "rabies_expiration"
-    t.string   "size"
     t.string   "weight"
     t.string   "color"
     t.string   "care_instructions"

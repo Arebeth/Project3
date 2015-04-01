@@ -1,15 +1,47 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "bootstrap";
+.navcontainer {
+  background-color: #F8F8F8;
+}
+.navbar-left {
+  font-size: 1em;
+  font-style: italic;
+}
+
+.navbar-left span {
+  font-family: Calligraffitti;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: bold;
+  color: #191B1A;
+}
+
+.container {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  margin-top: 60px;
+}
+#carousel-example-generic {
+  height: 450px;
+}
+.carousel-inner {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+}
+.item img{
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.home-right {
+  text-align: center;
+}
+#Calligraffitti {
+  font-family: Calligraffitti;
+  color: white;
+  font-weight: bold;
+  font-size: 100px;
+}

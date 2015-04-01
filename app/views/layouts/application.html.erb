@@ -2,11 +2,97 @@
 <html>
 <head>
   <title>Project3</title>
+  <!-- JQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- end bootstrap -->
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  
+
+   <!-- Widget config for Upload Care -->
+  <script>
+    UPLOADCARE_PUBLIC_KEY = '8f615b911b6092cc8a13';
+    UPLOADCARE_TABS = 'all';
+    UPLOADCARE_IMAGES_ONLY = true;
+    UPLOADCARE_PREVIEW_STEP = true;
+    UPLOADCARE_CLEARABLE = true;
+  </script>
+  <script charset="utf-8" src="https://ucarecdn.com/widget/2.0.5/uploadcare/uploadcare.full.min.js"></script>
+  <!-- end -->
+  <!-- google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arimo|Calligraffitti' rel='stylesheet' type='text/css'>
+  <!-- end -->
+
 </head>
 <body>
+<!-- nav bar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid" class="navcontainer">
+      <a href="/">
+      <p class="navbar-text navbar-left"><span>whskr</span></p>
+      </a>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !session[:user_id] %>
+          <li>
+            <%= form_tag(login_path, class: 'navbar-form navbar-left extra-padding-to-nav') do %>
+              <%= label_tag(:email) %>
+              <%= text_field_tag(:email, params[:email]) %>
+
+              <%= label_tag(:password) %>
+              <%= password_field_tag(:password, params[:password]) %>
+
+              <%= submit_tag("Login") %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <!-- insert calendar link here -->
+       
+
+        <li><%= link_to("About", controller: "access", action: "about") %></li>
+        <% if session[:user_id] %>
+          <li><%= link_to("Profile", "/users/#{session[:user_id]}") %></li>
+
+          <li>
+            <% if session[:user_id] %>
+              <%= link_to "Edit Profile", "/users/#{session[:user_id]}/edit"%>
+            <% end %> 
+          </li>
+          <li><%= link_to("Logout", logout_path, method: :delete) %></li>
+        <% else %>
+          <li><%= link_to("Sign Up", "/users/new") %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+<!-- end nav bar -->
+
+<!-- allow flash messages -->
+  <% flash.each do |key, value| %>
+  
+    <% if key == "notice" %>
+      <%= content_tag :div, value, class: "text-center alert alert-warning flashMessage" %>
+    <% elsif key == "alert" %>
+      <%= content_tag :div, value, class: "text-center alert alert-danger flashMessage" %>
+    <% else %>
+      <%= content_tag :div, value, class: "text-center alert alert-success flashMessage" %>
+    <% end %>
+  <% end %>
+<!-- end flash messages -->
 
 <%= yield %>
 
