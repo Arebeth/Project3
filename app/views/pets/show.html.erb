@@ -21,3 +21,4 @@
   <br><%= @pet.historical_information %>
 
 <%= link_to "Edit", edit_user_pet_path %> <br>
+<%= link_to "Delete", user_pet_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>

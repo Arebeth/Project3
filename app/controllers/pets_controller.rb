@@ -35,6 +35,13 @@ class PetsController < ApplicationController
     redirect_to user_pet_path
   end
 
+  def destroy
+    @user = User.find(params[:user_id])
+    Pet.destroy (params[:id])
+    flash[:notice] = "You have deleted your pet's profile."
+    redirect_to user_path(@user)
+  end
+
   private
   def pet_params
     params.require(:pet).permit(:id, :name, :type, :breed, 
