@@ -12,9 +12,9 @@
   <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a><br> 
 <% end %>
  
-    
-<%= link_to "Edit", edit_user_path %> <br>
-<%= link_to "Add Pet", new_user_pet_path(@user.id) %>
+<%= link_to "Add Pet", new_user_pet_path(@user.id) %>  <br>
+<%= link_to "Edit Profile", edit_user_path %> <br>
+<%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>
 </div>
 
 <div id="calendar"></div>

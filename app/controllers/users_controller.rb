@@ -28,6 +28,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @pets = @user.pets
+  end
+
+  def update
+    @user = User.find(params[:id])
     @user.update_attributes user_params
     redirect_to user_path(@user)
   end
@@ -36,7 +41,7 @@ class UsersController < ApplicationController
     User.destroy(session[:user_id])
     session[:user_id] = nil
     flash[:notice] = "You deleted your account."
-    redirect_to landingpage_path
+    redirect_to access_home_page_path
   end
 
   private
