@@ -1,2 +1,23 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div class="container page-background-color">  
+  <h1 class = "showProfileName"><%= @pet.name %>'s Profile</h1>
+
+  <br><%= @pet.name %>
+  <br><%= @pet.type %>
+  <br><%= @pet.breed %>  
+  <br><%= @pet.gender %> 
+  <br><%= @pet.altered %> 
+  <br><%= @pet.weight %> 
+  <br><%= @pet.color %> 
+  <br><%= @pet.microchip_company %>
+  <br><%= @pet.microchip_company_website %>
+  <br><%= @pet.microchip_company_phone %>
+  <br><%= @pet.county_registration_number %>
+  <br><%= @pet.county_registration_contact %>
+  <br><%= @pet.county_registration_expiration %>
+  <br><%= @pet.rabies_vaccination_number %>
+  <br><%= @pet.rabies_expiration %>
+  <br><%= @pet.care_instructions %>
+  <br><%= @pet.special_needs %>
+  <br><%= @pet.historical_information %>
+
+<%= link_to "Edit", edit_user_pet_path %> <br>

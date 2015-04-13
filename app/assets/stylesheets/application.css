@@ -1,35 +1,23 @@
 /**= require fullcalendar*/
 
 @import "bootstrap";
-.navcontainer {
-  background-color: #F8F8F8;
-}
-.navbar-left {
-  font-size: 1em;
-  font-style: italic;
-}
 
-.navbar-left span {
+#Calligraffitti {
   font-family: Calligraffitti;
-  font-size: 1.5em;
-  font-style: normal;
+  color: white;
   font-weight: bold;
-  color: #191B1A;
-}
-
-.container {
-  background-color: black;
-  height: 100%;
-  width: 100%;
-  margin-top: 60px;
-}
-#carousel-example-generic {
-  height: 450px;
+  font-size: 100px;
 }
 .carousel-inner {
+  background-color: black;  
+}
+.container {
   background-color: black;
-  background-size: cover;
-  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+.home-right {
+  text-align: center;
 }
 .item img{
   margin: 0 auto;
@@ -38,12 +26,26 @@
   overflow: hidden;
   vertical-align: middle;
 }
-.home-right {
-  text-align: center;
+.navbar {
+  margin-bottom: 0px;
 }
-#Calligraffitti {
+.navbar-form {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.navbar-left {
+  font-size: 1em;
+  font-style: italic;
+}
+.navbar-left span {
   font-family: Calligraffitti;
-  color: white;
+  font-size: 1.5em;
+  font-style: normal;
   font-weight: bold;
-  font-size: 100px;
+  color: #191B1A;
+}
+.navcontainer {
+  background-color: #F8F8F8;
+}
+.row {
+  margin: 100px 0px 100px 0px;
 }

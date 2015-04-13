@@ -16,15 +16,23 @@ class PetsController < ApplicationController
     @user.pets << @pet
     @pet.user_id = @user.id
     @pet.save
-    redirect_to user_pets_path @user
+    redirect_to user_pet_path @user.id, @pet.id
   end
 
   def show
-    @user = User.find_by_id(params[:user_id])
-    @pets = @user.pets
+    @user = User.find(params[:user_id])
+    @pet = Pet.find(params[:id])
   end
 
   def edit
+    @user = User.find(params[:user_id])
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    @pet.update_attributes pet_params
+    redirect_to user_pet_path
   end
 
   private

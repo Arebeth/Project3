@@ -6,6 +6,8 @@
     <%= f.label :name%>
     <%= f.text_field :name %>
   </p>
+  <input type="hidden" role="uploadcare-uploader"
+       data-multiple="true" name="photo" data-image-shrink="180x180 80%"/>
   <select name="type" id="type">
     <option value="1">Cat</option>
     <option value="2">Dog</option>
@@ -26,7 +28,8 @@
   </p>
   <p>
     <%= f.label :gender%>
-    <!-- <%= f.text_field :gender %> -->
+    <%= radio_button_tag(:gender, "female") %>
+    <%= radio_button_tag(:gender, "male") %>
     <%= radio_button_tag(:altered, "altered") %>
     <%= radio_button_tag(:altered, "unaltered") %>
   </p>
@@ -38,50 +41,50 @@
     <%= f.label :color%>
     <%= f.color_field :color %>
   </p>
+  <br>
   <p>
     <%= f.label :microchip_company%>
     <%= f.text_field :microchip_company %>
-  </p>
-    <p>
+  
     <%= f.label :microchip_company_website%>
     <%= f.url_field :microchip_company_website %>
-  </p>
-    <p>
+  
     <%= f.label :microchip_company_phone%>
     <%= f.telephone_field :microchip_company_phone %>
-  </p>
-    <p>
+  
     <%= f.label :microchip_registration_number%>
     <%= f.text_field :microchip_registration_number %>
   </p>
-    <p>
+  <br>
+  <p>
     <%= f.label :county_registration_number%>
     <%= f.text_field :county_registration_number %>
-  </p>
-  <p>
+  
     <%= f.label :county_registration_contact%>
     <%= f.text_field :county_registration_contact %>
-  </p>
-  <p>
+  
     <%= f.label :county_registration_expiration%>
     <%= f.date_field :county_registration_expiration %>
   </p>
+  <br>
   <p>
     <%= f.label :rabies_vaccination_number%>
     <%= f.text_field :rabies_vaccination_number %>
-  </p>
-  <p>
+
     <%= f.label :rabies_expiration%>
     <%= f.text_field :rabies_expiration %>
   </p>
+  <br>
   <p>
     <%= f.label :care_instructions%>
     <%= f.text_field :care_instructions %>
   </p>
+  <br>
   <p>
     <%= f.label :special_needs%>
     <%= f.text_field :special_needs %>
-  </p>  
+  </p> 
+  <br> 
   <p>
     <%= f.label :historical_information%>
     <%= f.text_field :historical_information %>
