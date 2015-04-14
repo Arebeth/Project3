@@ -24,6 +24,13 @@
   <link href='http://fonts.googleapis.com/css?family=Arimo|Calligraffitti' rel='stylesheet' type='text/css'>
   <!-- end -->
 
+  <!-- Widget config for Upload Care -->
+  <script>
+    UPLOADCARE_PUBLIC_KEY = "35f5e08144945413dce9";
+  </script>
+  <script charset="utf-8" src="https://ucarecdn.com/widget/2.0.6/uploadcare/uploadcare.full.min.js"></script>
+  <!-- end -->
+
 </head>
 <body>
 <!-- nav bar -->
@@ -75,15 +82,6 @@
     <% end %>
   <% end %>
 <!-- end flash messages -->
-
-<!-- Widget config for Upload Care -->
-  <script>
-    UPLOADCARE_LOCALE = "en";
-    UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive";
-    UPLOADCARE_PUBLIC_KEY = "35f5e08144945413dce9";
-  </script>
-  <script charset="utf-8" src="//ucarecdn.com/widget/2.0.6/uploadcare/uploadcare.full.min.js"></script>
-  <!-- end -->
 
 <%= yield %>
 
