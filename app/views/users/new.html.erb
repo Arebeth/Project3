@@ -6,18 +6,14 @@
   <%= form_for @user do |f| %>
 
     <div> 
-      <p><b> Upload a Profile Picture</b></p>   
+      <p><b> Upload Your Profile Picture</b></p>   
       <input
         type="hidden"
         role="uploadcare-uploader"
-        data-public-key="8f615b911b6092cc8a13"
-        data-tabs="file camera url facebook gdrive dropbox instagram evernote flickr skydrive"
-        data-image-shrink="200x200 80%"
         data-images-only="true"
         data-preview-step="true"
         data-clearable="true"
         data-multiple="false"
-        data-system-dialog="false"
         data-crop="true"
         name="user[photo]"
       />  

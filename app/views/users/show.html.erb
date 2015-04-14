@@ -1,15 +1,13 @@
-<div class="container page-background-color">  
+<div>  
   <h1 class = "showProfileName"><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
 
   <% if @user.photo.present? == true %>
     <div style="background-image: url(<%= @user.photo %>); background-size: cover; background-position: center;"></div>
   <% end %> <!-- end user photo -->
 
-
-
-
 <% @pets.each do |pet| %>
   <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a><br> 
+  <%= pet.photo %>
 <% end %>
  
 <%= link_to "Add Pet", new_user_pet_path(@user.id) %>  <br>
@@ -18,56 +16,35 @@
 </div>
 
 <div id="calendar"></div>
-
 <script>
-// $('#calendar').fullCalendar({
-//     events: [
-//         {
-//             title  : 'event1',
-//             start  : '2015-04-02'
-//         },
-//         {
-//             title  : 'event2',
-//             start  : '2015-04-02',
-//             end    : '2010-04-03'
-//         },
-//         {
-//             title  : 'event3',
-//             start  : '2015-04-09T12:30:00',
-//             allDay : false // will make the time show
-//         }
-//     ]
-// });
+  $('#calendar').fullCalendar({
+    
+    dayClick: function(date) {
+      var new_event = {
+          title : prompt("Title"),
+          start : date,
+          end : date,
+          allDay : false,
+          selectable: true,
+          editable : true,
+          // Duration: '00:30:00',
+          slotEventOverlap: true
+      };   
+      $('#calendar').fullCalendar( 'renderEvent', new_event, true );
+    },
 
+    eventClick: function(event, element) {
+      event.title = prompt("Rename title");
+      $('#calendar').fullCalendar('updateEvent', event);
+    },
+    
+    unselect: function (){
+      selectable = false;
+    },
+  });
 
-    $('#calendar').fullCalendar({
-      
-      dayClick: function(date) {
-
-        var new_event = {
-            title  : prompt("Title"),
-            start  : date,
-            editable : true
-        };
-        
-        $('#calendar').fullCalendar( 'renderEvent', new_event, true );
-      },
-      eventClick: function(event, element) {
-        event.title = prompt("Rename title");
-        $('#calendar').fullCalendar('updateEvent', event);
-      },
-
-      selectable: true,
-      unselect: function (){
-        selectable = false;
-      },
-      Duration: '00:30:00',
-      startParam: 'start',
-      endParam: 'end',
-      slotEventOverlap: true,
-    });
-
-    $('#my-today-button').click(function() {
-      $('#calendar').fullCalendar('today');
-    });
+  $('#my-today-button').click(function() {
+    $('#calendar').fullCalendar('today');
+  });
+  
 </script>

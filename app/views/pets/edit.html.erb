@@ -4,8 +4,12 @@
     <%= f.label :name%>
     <%= f.text_field :name %>
   </p>
+
+  <div class="pet_profile_photo center" style="background-image: url(<%= @pet.photo %>); background-size: cover; background-position:center;"></div>
+  
   <input type="hidden" role="uploadcare-uploader"
        data-multiple="true" name="photo" data-image-shrink="180x180 80%"/>
+  
   <select name="type" id="type">
     <option value="1">Cat</option>
     <option value="2">Dog</option>
