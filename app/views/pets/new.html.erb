@@ -9,19 +9,13 @@
       </p>
       <div> 
           <p><b> Upload A Profile Picture For Your Pet</b></p>   
-          <input
-            type="hidden"
-            role="uploadcare-uploader"
-            data-public-key="8f615b911b6092cc8a13"
-            data-tabs="file camera url facebook gdrive dropbox instagram evernote flickr skydrive"
-            data-image-shrink="200x200 80%"
-            data-images-only="true"
-            data-clearable="true"
-            data-multiple="false"
-            data-system-dialog="false"
-            data-crop="true"
-            name="pet[photo]"
-          />  
+            <input
+              type="hidden"
+              role="uploadcare-uploader"
+              data-images-only="true"
+              data-crop=""
+              name="pet[photo]"
+            />  
         </div>
       <p>
         <%= f.label :type, required: true%>
@@ -111,16 +105,14 @@
       </p>  
       <div> 
           <p><b> Upload Pictures Of Your Pet</b></p>   
-          <input
+           <input
             type="hidden"
             role="uploadcare-uploader"
             data-images-only="true"
-            data-clearable="true"
             data-multiple="true"
-            data-system-dialog="false"
-            data-crop="true"
-            name="pet[photo_ids]"
-          />
+            data-crop=""
+            name="pet[photos]"
+          /> 
         </div>
         <div> 
           <p><b> Upload Records For Your Pet</b></p>   
@@ -128,9 +120,8 @@
             type="hidden"
             role="uploadcare-uploader"
             data-images-only="false"
-            data-clearable="true"
             data-multiple="true"
-            data-crop="true"
+            data-crop=""
             name="pet[records]"
           />  
         </div>
