@@ -1,6 +1,6 @@
-<div class="container page-background-color">  
-  <h1 class = "showProfileName"><%= @pet.name %>'s Profile</h1>
-
+<h1 class = "showProfileName"><%= @pet.name %>'s Profile</h1>
+<div class="center">
+  <div class="profile_photo center" style="background-image: url(<%= @pet.photo %>)"></div>
   <br><%= @pet.name %>
   <br><%= @pet.type %>
   <br><%= @pet.breed %>  

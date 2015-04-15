@@ -2,9 +2,8 @@
 <p>Find me in app/views/users/new.html.erb</p> -->
 
 <h1>Create a New User</h1>
-
+<div class="center">
   <%= form_for @user do |f| %>
-
     <div> 
       <p><b> Upload Your Profile Picture</b></p>   
       <input
@@ -15,29 +14,39 @@
         name="user[photo]"
       />  
     </div>
+    <p>
       <%= f.label :first_name%>
       <%= f.text_field :first_name, required: true %>
-
+    </p>
+    <p>
       <%= f.label :last_name%>
       <%= f.text_field :last_name, required: true %>
-
+    </p>
+    <p>
       <%= f.label :address%>
       <%= f.text_field :address %>
-
+    </p>
+    <p>
       <%= f.label :vet_name%>
       <%= f.text_field :vet_name %>
-
+    </p>
+    <p>
       <%= f.label :vet_number%>
       <%= f.text_field :vet_number %>
-
+    </p>
+    <p>
       <%= f.label :vet_address%>
       <%= f.text_field :vet_address %>
-
+    </p>
+    <p>
       <%= f.label :email%>
       <%= f.email_field :email, required: true, autofocus: true %>
-   
+    </p>
+    <p>
       <%= f.label :password%>
       <%= f.password_field :password %>
-    
+    </p>
+    <br>
     <%= f.submit %>
-<% end %>
+  <% end %>
+</div>

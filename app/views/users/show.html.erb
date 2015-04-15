@@ -1,15 +1,19 @@
-<div>  
-  <h1 class = "showProfileName"><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
-
+<h1 class = "showProfileName"><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
+<div> 
   <% if @user.photo.present? == true %>
-    <div style="background-image: url(<%= @user.photo %>); background-size: cover; background-position: center;"></div>
+    <div class="profile_photo" style="background-image: url(<%= @user.photo %>); background-size: cover; background-position: center;"></div>
   <% end %> <!-- end user photo -->
-
+</div>
+<br>
 <% @pets.each do |pet| %>
-  <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a><br> 
-  <%= pet.photo %>
+  <div class="inline center">
+    <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a>
+
+    <div class="profile_photo center" style="background-image: url(<%= pet.photo %>)"></div>
+  </div>  
 <% end %>
- 
+<br>  
+
 <%= link_to "Add Pet", new_user_pet_path(@user.id) %>  <br>
 <%= link_to "Edit Profile", edit_user_path %> <br>
 <%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>

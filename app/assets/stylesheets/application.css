@@ -17,6 +17,7 @@
 }
 .center {
   text-align: center;
+  margin: 0 auto;
 }
 .container {
   background-color: black;
@@ -25,6 +26,9 @@
 }
 .home-right {
   text-align: center;
+}
+.inline {
+  display: inline-block;
 }
 .item img{
   margin: 0 auto;
@@ -52,6 +56,12 @@
 }
 .navcontainer {
   background-color: #F8F8F8;
+}
+.profile_photo {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
 }
 .row {
   margin: 100px 0px 100px 0px;
