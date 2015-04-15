@@ -50,7 +50,7 @@ class PetsController < ApplicationController
       :microchip_registration_number, :county_registration_number, 
       :county_registration_contact, :county_registration_expiration, 
       :rabies_vaccination_number, :rabies_expiration, :care_instructions, 
-      :special_needs, :historical_information, :photo)
+      :special_needs, :historical_information, :photo, :vet_records)
 
 
   end

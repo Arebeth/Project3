@@ -63,6 +63,10 @@
   background-size: cover;
   background-position: center;
 }
+.record_picture {
+  width: 100px;
+  height: 100px;
+}
 .row {
   margin: 100px 0px 100px 0px;
 }

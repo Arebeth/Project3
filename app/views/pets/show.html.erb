@@ -19,6 +19,11 @@
   <br><%= @pet.care_instructions %>
   <br><%= @pet.special_needs %>
   <br><%= @pet.historical_information %>
+<br>
 
+<% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
+  <img class="record_picture" src="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt="">
+<% end %>
+<br>
 <%= link_to "Edit", edit_user_pet_path %> <br>
 <%= link_to "Delete", user_pet_path, method: "delete", data: { confirm: "Are you sure you want to delete your pet's profile?\nThis can not be undone." } %> <br>
