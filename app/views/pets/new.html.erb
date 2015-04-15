@@ -101,28 +101,30 @@
         <%= f.label :historical_information%> <br>
         <%= f.text_area :historical_information, rows: 15, cols: 80 %>
       </p>  
-      <div> 
-          <p><b> Upload Pictures Of Your Pet</b></p>   
-           <input
-            type="hidden"
-            role="uploadcare-uploader"
-            data-images-only="true"
-            data-multiple="true"
-            data-crop=""
-            name="pet[photos]"
+      <!-- <div> nice to have functionality
+        <p><b> Upload Pictures Of Your Pet</b></p>   
+         <input
+          type="hidden"
+          role="uploadcare-uploader"
+          data-images-only="true"
+          data-multiple="true"
+          data-crop=""
+          name="pet[photos]"
           /> 
-        </div>
-        <div> 
-          <p><b> Upload Records For Your Pet</b></p>   
-          <input
-            type="hidden"
-            role="uploadcare-uploader"
-            data-images-only="false"
-            data-multiple="true"
-            data-crop=""
-            name="pet[records]"
-          />  
-        </div>
+      </div> -->
+      <div> 
+        <p><b> Upload Records For Your Pet</b></p>   
+        <input
+          type="hidden"
+          role="uploadcare-uploader"
+          data-images-only="false"
+          data-multiple="true"
+          data-crop=""
+          name="pet[records]"
+          value=""
+          data-multiple-max="15"
+        />  
+      </div>
       <br>  
       <%= f.submit "save" %>
     <% end %>
