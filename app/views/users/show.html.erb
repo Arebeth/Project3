@@ -35,7 +35,7 @@
 <%= link_to "Add Pet", new_user_pet_path(@user.id) %>  |  <%= link_to "Edit Profile", edit_user_path %>  |  <%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>
 </div>
 
-<!--  
+ 
 NOTE:
 Calendar via Fullcalendar is nice to have functionality, but not 
 within mvp. Unable to finish within time contraints of project
@@ -73,4 +73,4 @@ within mvp. Unable to finish within time contraints of project
     $('#calendar').fullCalendar('today');
   });
   
-</script> -->
+</script>
