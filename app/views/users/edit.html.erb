@@ -2,7 +2,7 @@
 <div class="center">
   <%= form_for @user do |f| %>
     <div class="profile_photo" style="background-image: url(<%= @user.photo %>)">
-      <input type="hidden" role="uploadcare-uploader" data-multiple="false" name="user[photo]" />
+      <input type="hidden" role="uploadcare-uploader" data-multiple="false" name="user[photo]" value="<%= @user.photo %>"/>
     </div> 
 
     <p>

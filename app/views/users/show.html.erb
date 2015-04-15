@@ -1,29 +1,51 @@
-<h1 class = "showProfileName"><%= @user.first_name %> <%= @user.last_name %>'s Profile</h1>
-<div> 
-  <% if @user.photo.present? == true %>
-    <div class="profile_photo" style="background-image: url(<%= @user.photo %>); background-size: cover; background-position: center;"></div>
-  <% end %> <!-- end user photo -->
-</div>
-<br>
-<% @pets.each do |pet| %>
-  <div class="inline center">
-    <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a>
+<h1><%= @user.first_name %>'s Profile</h1>
 
-    <div class="profile_photo center" style="background-image: url(<%= pet.photo %>)"></div>
-  </div>  
-<% end %>
+
+    <div class="center">
+      <div>
+        <% if @user.photo.present? == true %>
+          <div class="profile_photo" style="background-image: url(<%= @user.photo %>); float: left"></div>
+        <% end %> <!-- end user photo -->
+      </div> 
+      <div class="vert_align">
+        <%= @user.first_name %> 
+        <%= @user.last_name %> 
+        <br> 
+        <% if @user.vet_name.present? == true %>
+          Vet info:  
+          <br><%= @user.vet_name %>
+          <br><%= @user.vet_number %>
+          <br><%= @user.vet_address %>
+        <% end %>
+      </div>
+    </div> 
+<br>
+<br>
+<div class="center">
+  <% @pets.each do |pet| %>
+    <div class="inline center">
+      <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a>
+      <div class="profile_photo center" style="background-image: url(<%= pet.photo %>) "></div>
+    </div>  
+  <% end %>
+</div> 
+
 <br>  
 
-<%= link_to "Add Pet", new_user_pet_path(@user.id) %>  <br>
-<%= link_to "Edit Profile", edit_user_path %> <br>
-<%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>
+<%= link_to "Add Pet", new_user_pet_path(@user.id) %>  |  <%= link_to "Edit Profile", edit_user_path %>  |  <%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>
 </div>
+
+<!--  
+NOTE:
+Calendar via Fullcalendar is nice to have functionality, but not 
+within mvp. Unable to finish within time contraints of project
 
 <div id="calendar"></div>
 <script>
   $('#calendar').fullCalendar({
     
     dayClick: function(date) {
+      alert(date);
       var new_event = {
           title : prompt("Title"),
           start : date,
@@ -51,4 +73,4 @@
     $('#calendar').fullCalendar('today');
   });
   
-</script>
+</script> -->

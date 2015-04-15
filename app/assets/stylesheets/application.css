@@ -21,8 +21,11 @@
 }
 .container {
   background-color: black;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
+}
+.flashMessage {
+  margin-bottom: 0px;
 }
 .home-right {
   text-align: center;
@@ -32,8 +35,8 @@
 }
 .item img{
   margin: 0 auto;
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   overflow: hidden;
   vertical-align: middle;
 }
@@ -62,6 +65,10 @@
   height: 200px;
   background-size: cover;
   background-position: center;
+  background-color: teal;
+  border: 10px solid white;
+  border-radius: 100px;
+  margin: 0 auto;
 }
 .record_picture {
   width: 100px;
@@ -69,4 +76,14 @@
 }
 .row {
   margin: 100px 0px 100px 0px;
+}
+.vert_align{
+  vertical-align: center;
+}
+.whskr {
+  font-family: Calligraffitti;
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: bold;
+  color: #191B1A;
 }

@@ -53,6 +53,10 @@
     </p>
     <br>
     <p>
+      <%= f.label :microchip_number%>
+      <%= f.text_field :microchip_number %>
+    <br>
+    <p>
       <%= f.label :microchip_company%>
       <%= f.text_field :microchip_company %>
     <br>
@@ -102,6 +106,23 @@
       <br>
       <%= f.text_area :historical_information, rows: 10, cols: 80 %>
     </p>  
+  <br>
+
+  <% if @pet.vet_records.present? == true %>
+    <% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
+      <a class="record_picture" href="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt=""> <i class="icon-file"></i> Record <%= i+1 %>   </a>
+    <% end %>
+  <% end %>
+  <p><b> Edit Records For <%= @pet.name %></b></p> 
+  <input
+    type="hidden"
+    role="uploadcare-uploader"
+    data-images-only="false"
+    data-multiple="true"
+    name="pet[vet_records]"
+    value="<%= @pet.vet_records %>"
+    data-multiple-max="15"
+  />
   <br>
     <%= f.submit "save" %>
   <% end %>
