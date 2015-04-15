@@ -17,17 +17,9 @@
         </div>
         <br>
       <p>
-        <%= f.label :type, required: true%>
-        <select name="type" id="type" class="center" "dropdown">
-          <option value="1">Cat</option>
-          <option value="2">Dog</option>
-          <option value="2">Horse</option>
-          <option value="2">Small Mammals</option>
-          <option value="2">Reptile/Amphibian</option>
-          <option value="2">Birds</option>
-          <option value="2">Fish/Aquatic</option>
-          <option value="2">Other</option>
-        </select>
+        <%= f.label :pet_type, required: true%>
+        <%= f.select(:pet_type, [["Cat", "Cat"],["Dog", "Dog"],["Horse", "Horse"],
+        ["Small Mammal", "Small Mammal"], ["Reptile/Amphibian", "Reptile/Amphibian"], ["Bird", "Bird"], ["Fish/Aquatic", "Fish/Aquatic"], ["Other", "Other"]]) %>
       </p>  
       
       <p>
