@@ -1,36 +1,39 @@
 <h1><%= @user.first_name %>'s Profile</h1>
-
-
-    <div class="center">
-      <div>
-        <% if @user.photo.present? == true %>
-          <div class="profile_photo" style="background-image: url(<%= @user.photo %>); float: left"></div>
-        <% end %> <!-- end user photo -->
-      </div> 
-      <div class="vert_align">
-        <%= @user.first_name %> 
-        <%= @user.last_name %> 
-        <br> 
-        <% if @user.vet_name.present? == true %>
-          Vet info:  
-          <br><%= @user.vet_name %>
-          <br><%= @user.vet_number %>
-          <br><%= @user.vet_address %>
-        <% end %>
-      </div>
+<!-- user info -->
+  <div class="center">
+    <div class="inline" style="vertical-align: middle;">
+      <% if @user.photo.present? == true %>
+        <div class="profile_photo" style="background-image: url(<%= @user.photo %>); float: left"></div>
+      <% end %> 
     </div> 
+    <div class="inline" style="vertical-align: middle;">
+      <h3><%= @user.first_name %> <%= @user.last_name %></h3> 
+       
+      <% if @user.vet_name.present? == true %>
+        Vet info:  
+        <br><%= @user.vet_name %>
+        <br><%= @user.vet_number %>
+        <br><%= @user.vet_address %>
+      <% end %>
+    </div>
+  </div> 
 <br>
 <br>
-<div class="center">
-  <% @pets.each do |pet| %>
-    <div class="inline center">
-      <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><%= pet.name %> </a>
-      <div class="profile_photo center" style="background-image: url(<%= pet.photo %>) "></div>
-    </div>  
-  <% end %>
-</div> 
+<!-- pet info -->
+  <h2><%= @user.first_name %>'s Pets</h2>
+  <div class="center">
+    <% @pets.each do |pet| %>
+      <div class="inline center">
+        <a href="/users/<%= @user.id %>/pets/<%= pet.id %>"><h4><%= pet.name %></h4></a>
+        <div class="profile_photo center" style="background-image: url(<%= pet.photo %>) "></div>
+      </div>  
+    <% end %>
+  </div> 
 
-<br>  
+<br><br>
 
-<%= link_to "Add Pet", new_user_pet_path(@user.id) %>  |  <%= link_to "Edit Profile", edit_user_path %>  |  <%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> <br>
-</div>
+<!-- links -->
+  <div class="center"> 
+  <h4><%= link_to "Add Pet", new_user_pet_path(@user.id) %>  |  <%= link_to "Edit Profile", edit_user_path %>  |  <%= link_to "Delete Profile", user_path, method: "delete", data: { confirm: "Are you sure you want to delete your account?\nThis can not be undone." } %> </h4>
+  </div>
+  

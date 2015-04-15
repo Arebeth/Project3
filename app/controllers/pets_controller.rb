@@ -44,8 +44,8 @@ class PetsController < ApplicationController
 
   private
   def pet_params
-    params.require(:pet).permit(:id, :name, :type, :breed, 
-      :birthday, :gender, :weight, :color, :microchip_company, 
+    params.require(:pet).permit(:id, :name, :pet_type, :breed, 
+      :birthday, :gender, :altered, :weight, :color, :microchip_company, 
       :microchip_company_website, :microchip_company_phone, 
       :microchip_registration_number, :county_registration_number, 
       :county_registration_contact, :county_registration_expiration, 

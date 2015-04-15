@@ -1,38 +1,44 @@
 <h1 class = "showProfileName"><%= @pet.name %>'s Profile</h1>
 <div class="center">
-  <div class="profile_photo center" style="background-image: url(<%= @pet.photo %>)"></div>
-  <br><%= @pet.name %>
-  <br><%= @pet.type %>
-  <br><%= @pet.breed %>  
-  <br><%= @pet.gender %> 
-  <br><%= @pet.altered %> 
-  <br><%= @pet.weight %> 
-  <br><%= @pet.color %> 
-  <br>Mircochip Number: <%= @pet.microchip_number %>
-  <br>Mircochip Company: <%= @pet.microchip_company %>
-  <br>Mircochip Company Website: <%= @pet.microchip_company_website %>
-  <br>Mircochip Company Phone: <%= @pet.microchip_company_phone %>
-  <br>
-  <br>County Registration Number:<%= @pet.county_registration_number %>
-  <br>County Registration Contact:<%= @pet.county_registration_contact %>
-  <br>County Registration Expiration:<%= @pet.county_registration_expiration %>
-  <br>
-  <br>Rabies Vaccination Number:<%= @pet.rabies_vaccination_number %>
-  <br>Rabies Expiration:<%= @pet.rabies_expiration %>
-  <br>
-  <br>Pet Care Instructions:<%= @pet.care_instructions %>
-  <br>
-  <br>Pet Special Needs:<%= @pet.special_needs %>
-  <br>
-  <br>Pet Historical Information:<%= @pet.historical_information %>
-<br>
+  <div class="profile_photo center" style="background-image: url(<%= @pet.photo %>); margin: 0 auto;"></div>
+  <h5>
+    <h4><%= @pet.name %></h4>
+    <br>Type: <%= @pet.pet_type %>
+    <br>Breed: <%= @pet.breed %>  
+    <br>Gender: <%= @pet.gender %> 
+    <br>Altered: <%= @pet.altered %> 
+    <br>Weight: <%= @pet.weight %> 
+    <br>Color: <%= @pet.color %> 
+    <br>
+    <br>Mircochip Number: <%= @pet.microchip_number %>
+    <br>Mircochip Company: <%= @pet.microchip_company %>
+    <br>Mircochip Company Website: <%= @pet.microchip_company_website %>
+    <br>Mircochip Company Phone: <%= @pet.microchip_company_phone %>
+    <br>
+    <br>County Registration Number:<%= @pet.county_registration_number %>
+    <br>County Registration Contact:<%= @pet.county_registration_contact %>
+    <br>County Registration Expiration:<%= @pet.county_registration_expiration %>
+    <br>
+    <br>Rabies Vaccination Number:<%= @pet.rabies_vaccination_number %>
+    <br>Rabies Expiration:<%= @pet.rabies_expiration %>
+    <br>
+    <br>Pet Care Instructions:<br><%= @pet.care_instructions %>
+    <br>
+    <br>Pet Special Needs:<br><%= @pet.special_needs %>
+    <br>
+    <br>Pet Historical Information:<br><%= @pet.historical_information %>
+    <br>
+</h5>
 
 <% if @pet.vet_records.present? == true %>
-<% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
-  <a class="record_picture" href="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt=""> <i class="icon-file"></i> Record <%= i+1 %>   </a>
-<% end %>
+  <h5>Records:</h5>
+  <% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
+    <a class="record_picture" href="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt=""> <i class="icon-file"></i> Record <%= i+1 %>   </a>
+  <% end %>
 <% end %>
 
-<br>
-<%= link_to "Edit", edit_user_pet_path %> <br>
-<%= link_to "Delete", user_pet_path, method: "delete", data: { confirm: "Are you sure you want to delete your pet's profile?\nThis can not be undone." } %> <br>
+<br><br>
+<h4>
+  <%= link_to "Edit", edit_user_pet_path %>  |  <%= link_to "Delete", user_pet_path, method: "delete", data: { confirm: "Are you sure you want to delete your pet's profile?\nThis can not be undone." } %> <br>
+</h4>
+ <br>

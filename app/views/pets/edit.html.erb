@@ -1,27 +1,28 @@
-<h1>Edit <%= @pet.name %>'s Profile'</h1>
+<h1>Edit <%= @pet.name %>'s Profile</h1>
 <div class="center">
   <%= form_for @pet, url:user_pet_path do |f| %>
+    <div class="profile_photo" style="background-image: url(<%= @pet.photo %>); margin: 0 auto;"></div>
+    <br>
+
+    <p><b> Change Profile Picture For <%= @pet.name %></b></p>
+    <input type="hidden" role="uploadcare-uploader" data-multiple="false" name="pet[photo]" value="<%= @pet.photo %>"/>
+    <br><br>
+
     <p>
       <%= f.label :name%>
       <%= f.text_field :name %>
     </p>
-
-    <div class="profile_photo" style="background-image: url(<%= @pet.photo %>)"></div>
-    
-    <p><b> Change Profile Picture For <%= @pet.name %></b></p>
-    <input type="hidden" role="uploadcare-uploader" data-multiple="false" name="pet[photo]" value="<%= @pet.photo %>"/>
-    <br><br>
     <p>
       <%= f.label :type, required: true%>
-      <select name="type" id="type" class="center" "dropdown">
-        <option value="1">Cat</option>
-        <option value="2">Dog</option>
-        <option value="2">Horse</option>
-        <option value="2">Small Mammals</option>
-        <option value="2">Reptile/Amphibian</option>
-        <option value="2">Birds</option>
-        <option value="2">Fish/Aquatic</option>
-        <option value="2">Other</option>
+      <select name="pet[pet_type]" id="type" class="center" "dropdown">
+        <option value="Cat">Cat</option>
+        <option value="Dog">Dog</option>
+        <option value="Horse">Horse</option>
+        <option value="Snall Mammal">Small Mammals</option>
+        <option value="Reptile/Amphibian">Reptile/Amphibian</option>
+        <option value="Bird">Birds</option>
+        <option value="Fish/Aquatic">Fish/Aquatic</option>
+        <option value="Other">Other</option>
       </select>
     </p> 
     <p>
@@ -106,24 +107,27 @@
       <br>
       <%= f.text_area :historical_information, rows: 10, cols: 80 %>
     </p>  
-  <br>
+  <br><br><br>
 
-  <% if @pet.vet_records.present? == true %>
-    <% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
-      <a class="record_picture" href="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt=""> <i class="icon-file"></i> Record <%= i+1 %>   </a>
+    <% if @pet.vet_records.present? == true %>
+      <% @pet.vet_records.split("~")[1].split("/")[0].to_i.times do |i| %>
+        <a class="record_picture" href="<%= "#{@pet.vet_records}nth/#{i}/" %>" alt=""> <i class="icon-file"></i> Record <%= i+1 %>   </a>
+      <% end %>
     <% end %>
-  <% end %>
-  <p><b> Edit Records For <%= @pet.name %></b></p> 
-  <input
-    type="hidden"
-    role="uploadcare-uploader"
-    data-images-only="false"
-    data-multiple="true"
-    name="pet[vet_records]"
-    value="<%= @pet.vet_records %>"
-    data-multiple-max="15"
-  />
-  <br>
+    <br><br>
+
+    <p><b> Edit Records For <%= @pet.name %></b></p> 
+    <input
+      type="hidden"
+      role="uploadcare-uploader"
+      data-images-only="false"
+      data-multiple="true"
+      name="pet[vet_records]"
+      value="<%= @pet.vet_records %>"
+      data-multiple-max="15"
+    />
+    <br><br>
+
     <%= f.submit "save" %>
-  <% end %>
+  <% end %> <!-- end form -->
 </div>

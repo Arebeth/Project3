@@ -66,9 +66,10 @@
   background-size: cover;
   background-position: center;
   background-color: teal;
-  border: 10px solid white;
+  border: 10px solid #F8F8F8;
+  border-style: double;
   border-radius: 100px;
-  margin: 0 auto;
+  margin: 0 10px 0 10px;
 }
 .record_picture {
   width: 100px;
